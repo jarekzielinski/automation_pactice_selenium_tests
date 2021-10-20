@@ -15,7 +15,7 @@ public class TopMenuPage {
     public TopMenuPage() {
         PageFactory.initElements(DriverManager.getWebDriver(),this);
     }
-    public void clickOnSignInButon(){
+    public void clickOnSignInButton(){
         WaitForElement.waitForElementIsClickable(signInButton);
         signInButton.click();
     }

@@ -17,7 +17,7 @@ public class FailedLoginWithoutRequiredDataTest extends TestBase{
     @Test
     public void asUserLoginWithIncorrectLoginAndPassword(){
         TopMenuPage topMenuPage=new TopMenuPage();
-        topMenuPage.clickOnSignInButon();
+        topMenuPage.clickOnSignInButton();
         LoginPage loginPage=new LoginPage();
         loginPage.typeIntoUsernameField("");
         loginPage.typeIntoPasswordField("");

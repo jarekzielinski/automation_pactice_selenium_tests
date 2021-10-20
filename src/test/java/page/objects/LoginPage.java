@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import waits.WaitForElement;
 
 public class LoginPage {
+
     @FindBy(id = "email")
     private WebElement email;
     @FindBy(id = "passwd")
@@ -26,12 +27,10 @@ public class LoginPage {
     }
 
     public void typeIntoPasswordField(String password) {
-        WaitForElement.waitUntilElementIsVisible(pass);
         pass.sendKeys(password);
     }
 
     public void clickOnLoginButton() {
-        WaitForElement.waitForElementIsClickable(submitButton);
         submitButton.click();
     }
 
