@@ -18,11 +18,13 @@ public class TopMenuPage {
 
 
     public TopMenuPage() {
-        PageFactory.initElements(DriverManager.getWebDriver(),this);
+        PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
-    public void clickOnSignInButton(){
+
+    public LoginPage clickOnSignInButton() {
         WaitForElement.waitForElementIsClickable(signInButton);
         signInButton.click();
         logger.info("Clicked signInButton");
+    return new LoginPage();
     }
 }

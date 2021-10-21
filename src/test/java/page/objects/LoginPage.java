@@ -11,7 +11,7 @@ import waits.WaitForElement;
 
 public class LoginPage {
 
-    private Logger logger= LogManager.getRootLogger();
+    private Logger logger = LogManager.getRootLogger();
     @FindBy(id = "email")
     private WebElement email;
     @FindBy(id = "passwd")
@@ -25,29 +25,32 @@ public class LoginPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void typeIntoUsernameField(String name) {
+    public LoginPage typeIntoUsernameField(String name) {
         WaitForElement.waitUntilElementIsVisible(email);
         email.sendKeys(name);
         logger.info("Entered email");
-
+        return this;
     }
 
-    public void typeIntoPasswordField(String password) {
+    public LoginPage typeIntoPasswordField(String password) {
 
         pass.sendKeys(password);
         logger.info("Entered password");
+        return this;
     }
 
-    public void clickOnLoginButton() {
+    public TopMenuPage clickOnLoginButton() {
 
         submitButton.click();
         logger.info("Clicked button");
+        return new TopMenuPage();
     }
 
     public String getMessage() {
         WaitForElement.waitUntilElementIsVisible(errorField);
-        String warningText=errorField.getText();
-        logger.info("Returned warning message\n",warningText);
+        String warningText = errorField.getText();
+        logger.info("Returned warning message\n", warningText);
         return warningText;
     }
+
 }
