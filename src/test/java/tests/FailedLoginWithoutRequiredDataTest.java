@@ -1,5 +1,6 @@
 package tests;
 
+import driver.manager.DriverUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -10,6 +11,7 @@ import page.objects.TopMenuPage;
 
 import java.util.concurrent.TimeUnit;
 
+import static navigation.ApplicationURLs.LOGIN_URL;
 import static org.testng.Assert.assertTrue;
 
 public class FailedLoginWithoutRequiredDataTest extends TestBase {
@@ -17,10 +19,8 @@ public class FailedLoginWithoutRequiredDataTest extends TestBase {
 
     @Test
     public void asUserLoginWithIncorrectLoginAndPassword() {
-        TopMenuPage topMenuPage = new TopMenuPage();
-        topMenuPage.
-                clickOnSignInButton();
 
+        DriverUtils.navigateToPage(LOGIN_URL);
 
         LoginPage loginPage = new LoginPage();
         loginPage.

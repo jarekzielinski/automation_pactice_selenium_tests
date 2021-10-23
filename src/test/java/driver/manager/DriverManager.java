@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class DriverManager {
 
-    private static final BrowserType BROWSER_TYPE=BrowserType.CHROME;
+    private static final BrowserType BROWSER_TYPE=BrowserType.FIREFOX;
     private static WebDriver webdriver;
 
     private DriverManager() {
