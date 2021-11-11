@@ -5,6 +5,10 @@ import driver.BrowserFactory;
 import driver.BrowserType;
 import org.openqa.selenium.WebDriver;
 
+import static configuration.TestRunProperties.getBrowserToRun;
+import static configuration.TestRunProperties.getIsRemoteRun;
+import static driver.BrowserType.FIREFOX;
+
 public class DriverManager {
 
     private static WebDriver webdriver;
@@ -15,14 +19,14 @@ public class DriverManager {
     public static WebDriver getWebDriver() {
         if (webdriver == null) {
 
-            webdriver = new BrowserFactory(LocalWebDriverProperties.getLocalBrowser(),).getBrowser();
+            webdriver = new BrowserFactory(getBrowserToRun(),getIsRemoteRun()).getBrowser();
         }
         return webdriver;
     }
 
     public static void disposeDriver() {
         webdriver.close();
-        if(!LocalWebDriverProperties.getLocalBrowser().equals(BrowserType.FIREFOX))
+        if(!getBrowserToRun().equals(FIREFOX))
         webdriver.quit();
         webdriver = null;
     }
