@@ -3,6 +3,7 @@
 <suite name="All Automation Practice Tests" parallel="tests" thread-count="2">
 
     <test name="Negative Login Tests">
+        <parameter name="browser" value="FIREFOX"/>
         <classes>
             <class name="tests.FailedLoginWithoutRequiredDataTest"/>
         </classes>
@@ -10,6 +11,7 @@
     </test>
 
     <test name="Negative Login Tests v2">
+        <parameter name="browser" value="CHROME"/>
         <classes>
             <class name="tests.FailedLoginWithoutTheRequiredNumberOfCharactersInThePasswordFieldTest"/>
         </classes>
