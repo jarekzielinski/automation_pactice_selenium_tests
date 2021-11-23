@@ -7,22 +7,20 @@ import page.objects.LoginPage;
 import static navigation.ApplicationURLs.LOGIN_URL;
 import static org.testng.Assert.assertTrue;
 
-public class FailedLoginWithoutRequiredDataTest extends TestBase {
-
+public class FailedLoginWithoutTheRequiredNumberOfCharactersInThePasswordFieldTest extends TestBase {
 
     @Test
-    public void asUserLoginWithIncorrectLoginAndPassword() {
-
+    public void asUserLoginWithoutTheRequiredNumberOfCharactersInThePaswordFieled(){
         DriverUtils.navigateToPage(LOGIN_URL);
 
         LoginPage loginPage = new LoginPage();
         loginPage.
-                typeIntoUsernameField("").
-                typeIntoPasswordField("").
+                typeIntoUsernameField("micof86894@hax55.com").
+                typeIntoPasswordField("xxx").
                 clickOnLoginButton();
 
         String message = loginPage.getMessage();
-        assertTrue(message.contains("An email address required."));
+        assertTrue(message.contains("Invalid password"));
     }
 
 }

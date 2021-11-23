@@ -18,7 +18,7 @@ public class LoginPage {
     private WebElement pass;
     @FindBy(id = "SubmitLogin")
     private WebElement submitButton;
-    @FindBy(css = "div[class='alert alert-danger'] p")
+    @FindBy(css = "div[class='alert alert-danger'] ol li")
     private WebElement errorField;
 
     public LoginPage() {

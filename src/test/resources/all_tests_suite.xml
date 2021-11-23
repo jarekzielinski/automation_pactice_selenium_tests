@@ -6,6 +6,13 @@
         <classes>
             <class name="tests.FailedLoginWithoutRequiredDataTest"/>
         </classes>
+
+    </test>
+
+    <test name="Negative Login Tests v2">
+        <classes>
+            <class name="tests.FailedLoginWithoutTheRequiredNumberOfCharactersInThePasswordFieldTest"/>
+        </classes>
     </test>
 
 </suite>

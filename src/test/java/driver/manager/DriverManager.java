@@ -1,8 +1,6 @@
 package driver.manager;
 
-import configuration.LocalWebDriverProperties;
 import driver.BrowserFactory;
-import driver.BrowserType;
 import org.openqa.selenium.WebDriver;
 
 import static configuration.TestRunProperties.getBrowserToRun;
@@ -11,23 +9,23 @@ import static driver.BrowserType.FIREFOX;
 
 public class DriverManager {
 
-    private static WebDriver webdriver;
+    private static ThreadLocal<WebDriver> webDriverThreadLocal = new ThreadLocal<WebDriver>();
 
     private DriverManager() {
     }
 
     public static WebDriver getWebDriver() {
-        if (webdriver == null) {
+        if (webDriverThreadLocal.get() == null) {
 
-            webdriver = new BrowserFactory(getBrowserToRun(),getIsRemoteRun()).getBrowser();
+            webDriverThreadLocal.set(new BrowserFactory(getBrowserToRun(), getIsRemoteRun()).getBrowser());
         }
-        return webdriver;
+        return webDriverThreadLocal.get();
     }
 
     public static void disposeDriver() {
-        webdriver.close();
-        if(!getBrowserToRun().equals(FIREFOX))
-        webdriver.quit();
-        webdriver = null;
+        webDriverThreadLocal.get().close();
+        if (!getBrowserToRun().equals(FIREFOX))
+            webDriverThreadLocal.get().quit();
+        webDriverThreadLocal.remove();
     }
 }
