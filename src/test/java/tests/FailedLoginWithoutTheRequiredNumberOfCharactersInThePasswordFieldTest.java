@@ -2,6 +2,8 @@ package tests;
 
 import driver.manager.DriverUtils;
 import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
 import page.objects.LoginPage;
 
@@ -13,6 +15,7 @@ public class FailedLoginWithoutTheRequiredNumberOfCharactersInThePasswordFieldTe
     @Description("The goal of this test is to log in without the required number of characters in the password field" +
             "and check if Invalid password is displayed.")
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void asUserLoginWithoutTheRequiredNumberOfCharactersInThePasswordField(){
         DriverUtils.navigateToPage(LOGIN_URL);
 
