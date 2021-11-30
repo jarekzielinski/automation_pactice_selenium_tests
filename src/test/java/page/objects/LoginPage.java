@@ -2,6 +2,7 @@ package page.objects;
 
 import driver.manager.DriverManager;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -25,6 +26,8 @@ public class LoginPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
+    //    @Step("Type {email.name}")
+    @Step("Type into User Name Field {username}")
     public LoginPage typeIntoUsernameField(String name) {
         WaitForElement.waitUntilElementIsVisible(email);
         email.sendKeys(name);
@@ -32,6 +35,8 @@ public class LoginPage {
         return this;
     }
 
+    //    @Step("Type password")
+    @Step("Type into Password Field {password}")
     public LoginPage typeIntoPasswordField(String password) {
 
         pass.sendKeys(password);
@@ -39,6 +44,7 @@ public class LoginPage {
         return this;
     }
 
+    @Step("Click on Login Button")
     public TopMenuPage clickOnLoginButton() {
 
         submitButton.click();
@@ -46,6 +52,7 @@ public class LoginPage {
         return new TopMenuPage();
     }
 
+    @Step("Getting warning message from Login Page")
     public String getMessage() {
         WaitForElement.waitUntilElementIsVisible(errorField);
         String warningText = errorField.getText();
