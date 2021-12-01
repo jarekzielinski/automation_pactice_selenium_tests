@@ -2,10 +2,7 @@ package tests;
 
 
 import driver.manager.DriverUtils;
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.TmsLink;
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import page.objects.LoginPage;
 
@@ -14,14 +11,13 @@ import static org.testng.Assert.assertTrue;
 
 public class FailedLoginWithoutRequiredDataTest extends TestBase {
 
-
+    @Issue("DEFECT-1")
     @TmsLink("ID-1")
     @Severity(SeverityLevel.NORMAL)
     @Test
     @Description("The goal of this test is to log in without required data " +
             "and check if warning message An email address required is displayed.")
     public void asUserLoginWithIncorrectLoginAndPassword() {
-
         DriverUtils.navigateToPage(LOGIN_URL);
 
         LoginPage loginPage = new LoginPage();
