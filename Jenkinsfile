@@ -1,6 +1,14 @@
 pipeline {
     agent any
+    environment{
+    PATH="C:\apache-maven-3.8.3\bin:$PATH"
+    }
     stages {
+        stage('Build test code') {
+                     steps {
+                         sh 'mvn clean install -DskipTests'
+                     }
+                 }
         stage('Execute test') {
             steps {
                 sh 'mvn test'
