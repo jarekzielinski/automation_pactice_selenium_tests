@@ -1,6 +1,5 @@
 pipeline {
     agent any
-<<<<<<< HEAD
     environment{
     PATH="C:\apache-maven-3.8.3\bin:$PATH"
     }
