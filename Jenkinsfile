@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    stages{
         stage('Execute test') {
             steps {
                 sh 'mvn test'
